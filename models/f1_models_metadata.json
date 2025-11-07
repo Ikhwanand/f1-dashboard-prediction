@@ -1,0 +1,101 @@
+{
+  "position_model": {
+    "filename": "../models/f1_position_model_svr.pkl",
+    "model_name": "SVR",
+    "pipeline_steps": [
+      "preprocessor",
+      "regressor"
+    ],
+    "features_used": [
+      "SpeedI1_mean",
+      "SpeedI1_max",
+      "SpeedI2_mean",
+      "SpeedI2_max",
+      "SpeedFL_mean",
+      "SpeedFL_max",
+      "SpeedST_mean",
+      "SpeedST_max",
+      "Position_mean",
+      "Position_std",
+      "Position_min",
+      "Position_max",
+      "lap_time_cv",
+      "position_changes",
+      "fastest_lap_percentage",
+      "top_10_laps_percentage",
+      "TyreLife_mean",
+      "TyreLife_max",
+      "pit_stops",
+      "position_volatility",
+      "SpeedI1_mean_advantage",
+      "SpeedI2_mean_advantage",
+      "SpeedFL_mean_advantage",
+      "SpeedST_mean_advantage"
+    ],
+    "performance": {
+      "CV_MAE": 1.448618077294322,
+      "Test_MAE": 3.650954074601423,
+      "Test_RMSE": 4.885665670418506,
+      "Test_R2": 0.5963784661569691,
+      "Best_Params": {
+        "preprocessor__feature_selection__k": 6,
+        "regressor__C": 1,
+        "regressor__gamma": "scale",
+        "regressor__kernel": "linear"
+      },
+      "Model": "Pipeline(steps=[('preprocessor',\n                 Pipeline(steps=[('scaler', StandardScaler()),\n                                 ('feature_selection',\n                                  SelectKBest(k=6,\n                                              score_func=<function f_regression at 0x0000022FD09EF420>))])),\n                ('regressor', SVR(C=1, kernel='linear'))])"
+    }
+  },
+  "points_model": {
+    "filename": "../models/f1_points_model_extra trees.pkl",
+    "model_name": "Extra Trees",
+    "pipeline_steps": [
+      "preprocessor",
+      "regressor"
+    ],
+    "features_used": [
+      "SpeedI1_mean",
+      "SpeedI1_max",
+      "SpeedI2_mean",
+      "SpeedI2_max",
+      "SpeedFL_mean",
+      "SpeedFL_max",
+      "SpeedST_mean",
+      "SpeedST_max",
+      "Position_mean",
+      "Position_std",
+      "Position_min",
+      "Position_max",
+      "lap_time_cv",
+      "position_changes",
+      "fastest_lap_percentage",
+      "top_10_laps_percentage",
+      "TyreLife_mean",
+      "TyreLife_max",
+      "pit_stops",
+      "position_volatility",
+      "SpeedI1_mean_advantage",
+      "SpeedI2_mean_advantage",
+      "SpeedFL_mean_advantage",
+      "SpeedST_mean_advantage"
+    ],
+    "performance": {
+      "CV_MAE": 2.0651666666666664,
+      "Test_MAE": 5.378333333333334,
+      "Test_RMSE": 6.920988609536455,
+      "Test_R2": 0.41206853051483106,
+      "Best_Params": {
+        "preprocessor__feature_selection__k": 12,
+        "regressor__max_depth": 5,
+        "regressor__min_samples_split": 2,
+        "regressor__n_estimators": 100
+      },
+      "Model": "Pipeline(steps=[('preprocessor',\n                 Pipeline(steps=[('scaler', StandardScaler()),\n                                 ('feature_selection',\n                                  SelectKBest(k=12,\n                                              score_func=<function f_regression at 0x0000022FD09EF420>))])),\n                ('regressor',\n                 ExtraTreesRegressor(max_depth=5, random_state=42))])"
+    }
+  },
+  "saved_at": "20251107_154334",
+  "data_shape": [
+    19,
+    24
+  ]
+}
